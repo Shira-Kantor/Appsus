@@ -17,3 +17,8 @@
 /* Apps */
 @import 'apps/mail/EmailIndex.css';
 @import 'apps/note/NoteIndex.css';
+
+/* Note Components */
+@import 'cmps/NotePreview.css';
+@import 'cmps/NoteFilter.css';
+@import 'cmps/NoteList.css';

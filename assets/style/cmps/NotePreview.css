@@ -1,0 +1,17 @@
+.note-preview {
+    border: 1px solid rgb(87, 87, 87);
+}
+.note-preview{
+    margin-bottom: 10px;
+    break-inside: avoid;
+    
+    display: grid;
+    gap: 10px;
+    break-inside: avoid;
+
+    padding: 1em;
+    color: rgb(130, 122, 122);
+    font-weight: bold;
+    border: 1px solid rgb(130, 122, 122);
+    border-radius: 10px;
+}

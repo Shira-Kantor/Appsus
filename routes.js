@@ -25,7 +25,7 @@ const routerOptions = {
 			component: NoteIndex,
 		},
 		{
-			path: '/mail',
+			path: '/email',
 			component: MailIndex,
 		},
 		{
@@ -36,6 +36,10 @@ const routerOptions = {
             path: '/note/edit/:noteId?',
             component: NoteEdit
         },
+		// {
+		// 	path: '/email/edit/:emailId?',
+		// 	component: MailEdit,
+		// },
 		{
 			path: '/email/edit',
 			component: MailEdit,

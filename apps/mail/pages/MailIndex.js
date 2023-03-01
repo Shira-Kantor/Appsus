@@ -7,10 +7,10 @@ import MailList from '../cmps/MailList.js'
 export default {
     name: 'MailIndex',
     template: `
-        <section class="mail-index">
+        <section class="email-index">
             <h1>Mail</h1>
             <RouterLink to="/email/edit"> new Email</RouterLink>
-            <!-- <RouterLink to="/mail/inbox">INBOX</RouterLink> -->
+            <!-- <RouterLink to="/email/inbox">INBOX</RouterLink> -->
       <mailFilter/>
       <mailList :emails="filteredEmails" @remove="removeEmail"  v-if="filteredEmails"/>
       

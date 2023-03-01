@@ -1,18 +1,45 @@
-
 .email-list {
     padding: 40px;
-}
-.btn-remove {
-    cursor: pointer;
 
+}
+
+.btn-removed {
+    cursor: pointer;
+    opacity: 0;
     font-size: 1.4rem;
-    padding: 4px;
-    width: 20px;
-    height: 20px;
+    padding: 2px;
+    width: 10px;
+    height: 10px;
     border: none;
     border-radius: 50px;
 
-    background-color: rgb(11, 7, 7);
-    color: white;
-    /* box-shadow: 0 4px 3px rgba(0, 0, 0, 0.2); */
+    color: rgb(83, 72, 72);
+    background-color: rgba(255, 253, 253, 0);
+  
+}
+.btn-removed:hover {
+   background-color: rgb(168, 162, 162);
+}
+
+.email-line:hover  .btn-removed {
+    opacity: 1;
+}
+
+.email-line {
+}
+
+.email-line:hover {
+    /* background-color: grey; */
+    box-shadow: 10px 5px 5px 10px rgb(144, 140, 140);
+}
+
+.email-txt {
+    width: 80vw;
+    padding: 0.8rem;
+    display: grid;
+    grid-template-columns: auto;
+   
+}
+table {
+    
 }

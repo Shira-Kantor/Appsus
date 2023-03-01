@@ -3,21 +3,21 @@ import MailPreview from './MailPreview.js'
 
 export default {
     name: 'list',
-    props:['emails'],
+    props: ['emails'],
     template: `
         <section class="email-list" v-if="emails">
            <h3>hey from list</h3>
+           <table>
            
-           <ul>
-            <li v-for="email in emails" :key="email.id">
+            <tr v-for="email in emails" :key="email.id" class="email-line">
                     <!-- <pre>{{email}}</pre> -->
-                    <RouterLink :to="'/email/' + email.id"> <MailPreview :email="email"/></RouterLink> 
-               
-               
+                   <td class="email-txt"> <RouterLink :to="'/email/' + email.id"> <MailPreview :email="email"/></RouterLink> </td>
+
                     <!-- <RouterLink :to="'/email/edit/'+email.id">Edit</RouterLink> | -->
-                    <button class="btn-remove" @click="remove(email.id)">🗑</button>
-            </li>
-           </ul>
+                    <td>   <button class="btn-removed" @click="remove(email.id)"><i class="fa-regular fa-trash-can"></i></button></td>
+            </tr>
+          
+        </table>
         </section>
     `,
     methods: {

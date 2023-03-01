@@ -48,7 +48,6 @@ const routerOptions = {
 			path: '/:catchAll(.*)',
 			component: HomePage,
 		},
-
 	],
 }
 

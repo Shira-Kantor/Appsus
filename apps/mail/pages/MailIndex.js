@@ -8,8 +8,11 @@ export default {
     name: 'MailIndex',
     template: `
         <section class="email-index">
-            <h1>Mail</h1>
-            <RouterLink to="/email/edit"> new Email</RouterLink>
+            <nav class="nav-mail">
+                <h1>Mail</h1>
+             <input type="search" placeholder="search email">
+             <RouterLink class="new-email" to="/email/edit"><i class="fa-regular fa-pen">compose</i></RouterLink>
+            </nav>
             <!-- <RouterLink to="/email/inbox">INBOX</RouterLink> -->
       <mailFilter/>
       <mailList :emails="filteredEmails" @remove="removeEmail"  v-if="filteredEmails"/>
@@ -27,11 +30,11 @@ export default {
 
     created() {
         emailService.query()
-        .then(emails => 
-           { console.log('emails',emails)
-            this.emails = emails
-   } )
-},
+            .then(emails => {
+                console.log('emails', emails)
+                this.emails = emails
+            })
+    },
     methods: {
         removeEmail(emailId) {
             emailService.remove(emailId)
@@ -40,7 +43,7 @@ export default {
                     this.emails.splice(idx, 1)
                     eventBus.emit('show-msg', { txt: 'Email removed', type: 'success' })
                 })
-                .catch(err=>{
+                .catch(err => {
                     eventBus.emit('show-msg', { txt: 'Email remove failed', type: 'error' })
                 })
         },
@@ -52,7 +55,7 @@ export default {
         filteredEmails() {
             const regex = new RegExp(this.filterBy.body, 'i')
             return this.emails.filter(email => regex.test(email.body))
-     
+
         }
     },
     components: {

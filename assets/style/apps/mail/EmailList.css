@@ -1,5 +1,7 @@
 .email-list {
     padding: 40px;
+    background-color: rgb(246, 238, 238);
+    border-radius: 30px;
 
 }
 
@@ -26,6 +28,7 @@
 }
 
 .email-line {
+    
 }
 
 .email-line:hover {
@@ -38,8 +41,9 @@
     padding: 0.8rem;
     display: grid;
     grid-template-columns: auto;
+    
    
 }
 table {
-    
+    /* border: 2px solid grey; */
 }

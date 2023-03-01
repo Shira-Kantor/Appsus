@@ -2,8 +2,9 @@ import HomePage from './views/HomePage.js'
 import AboutUs from './views/AboutUs.js'
 // import NoteDetails from './apps/keep/pages/NoteDetails.js'
 import NoteIndex from './apps/keep/pages/NoteIndex.js'
-// import MailDetails from './apps/mail/pages/MailDetails.js'
+import MailDetails from './apps/mail/pages/MailDetails.js'
 import MailIndex from './apps/mail/pages/MailIndex.js'
+import MailEdit from './apps/mail/pages/MailEdit.js'
 
 const { createRouter, createWebHashHistory } = VueRouter
 
@@ -26,7 +27,23 @@ const routerOptions = {
 			path: '/mail',
 			component: MailIndex,
 		},
-		
+		{
+			path: '/email/:emailId',
+			component: MailDetails,
+		},
+		// {
+		// 	path: '/mail/edit/:emailId?',
+		// 	component: MailEdit,
+		// },
+		{
+			path: '/email/edit',
+			component: MailEdit,
+		},
+		{
+			path: '/:catchAll(.*)',
+			component: HomePage,
+		},
+
 	],
 }
 

@@ -6,7 +6,9 @@ export default {
         <section class="notes-container">
             <article v-for="note in notes" :key="note.id"  class="note-preview">
                 <NotePreview :note="note"/>
-                <button class="btn-remove" @click="removeNote(note.id)"><i class="fa-solid fa-trash"></i></button>
+                <button class="btn-delete" @click="removeNote(note.id)">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
             </article>
         </section>
     `,

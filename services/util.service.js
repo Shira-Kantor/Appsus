@@ -1,9 +1,9 @@
 export const utilService = {
     makeId,
+    saveToStorage,
+    loadFromStorage,
     makeLorem,
     getRandomIntInclusive,
-    loadFromStorage,
-    saveToStorage,
     animateCSS,
 }
 

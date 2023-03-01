@@ -6,5 +6,6 @@
 
 .router-view {
   min-height: calc(90vh - 3rem);
- 
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
 }

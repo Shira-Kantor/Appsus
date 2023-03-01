@@ -10,7 +10,7 @@ export default {
     template: `
         <section>
             <NoteFilter @filter="setFilterBy"/>
-            <NoteAdd @answer="onAddNoteText" />
+            <NoteAdd @onAddNote="onAddNote" />
             <NoteList 
                 :notes="filteredNotes"
                 @remove="removeNote"/>
@@ -20,7 +20,7 @@ export default {
         return {
             notes: [],
             filterBy: {},
-            newNote: notesService.getEmptyNote()
+           
         }
     },
     methods: {
@@ -37,20 +37,18 @@ export default {
         setFilterBy(filterBy) {
             this.filterBy = filterBy
         },
-        onAddNoteText(ans) {
-            console.log(ans) 
-           
-            console.log('emptyNote', {...this.newNote}) 
-            notesService.save({...this.newNote})
+        onAddNote(newNote) {
+            notesService.save(newNote)
             .then(savedNote => {
-                console.log(savedNote) 
+                console.log('saved note', savedNote) 
+                this.notes.push(savedNote)
             })
         }
     },
     computed: {
         filteredNotes() {
             const regex = new RegExp(this.filterBy.txt, 'i')
-            return this.notes.filter(note => regex.test(note.type))
+            return this.notes.filter(note => regex.test(note.info.txt))
         },
     },
     created() {

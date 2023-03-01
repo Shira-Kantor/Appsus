@@ -2,6 +2,7 @@ import HomePage from './views/HomePage.js'
 import AboutUs from './views/AboutUs.js'
 // import NoteDetails from './apps/keep/pages/NoteDetails.js'
 import NoteIndex from './apps/keep/pages/NoteIndex.js'
+import NoteEdit from './apps/keep/cmps/NoteEdit.js'
 import MailDetails from './apps/mail/pages/MailDetails.js'
 import MailIndex from './apps/mail/pages/MailIndex.js'
 import MailEdit from './apps/mail/pages/MailEdit.js'
@@ -31,10 +32,10 @@ const routerOptions = {
 			path: '/email/:emailId',
 			component: MailDetails,
 		},
-		// {
-		// 	path: '/mail/edit/:emailId?',
-		// 	component: MailEdit,
-		// },
+		{
+            path: '/note/edit/:noteId?',
+            component: NoteEdit
+        },
 		{
 			path: '/email/edit',
 			component: MailEdit,

@@ -74,18 +74,19 @@ export const notesService = {
     getEmptyNote,
 }
 
-function query(filterBy = {}) {
+function query() {
     return storageService.query(NOTE_KEY)
-        .then(notes => {
-            if (filterBy.txt) {
-                const regex = new RegExp(filterBy.txt, 'i')
-                notes = notes.filter(note => regex.test(note.info.txt))
-            } if (filterBy.type) {
-                const regex = new RegExp(filterBy.type, 'i')
-                notes = notes.filter(note => regex.test(note.type))
-            }
-            return notes
-        })
+        // .then(notes => {
+        //     if (filterBy.txt) {
+        //         const regex = new RegExp(filterBy.txt, 'i')
+        //         notes = notes.filter(note => regex.test(note.info.txt))
+        //     }
+        //     // } if (filterBy.type) {
+        //         // const regex = new RegExp(filterBy.type, 'i')
+        //         // notes = notes.filter(note => regex.test(note.type))
+        //     // }
+        //     return notes
+        // })
 }
 
 function get(noteId) {
@@ -104,9 +105,9 @@ function save(note) {
     }
 }
 
-function getEmptyNote(txt = '') {
+function getEmptyNote() {
     return {
-        id: utilService.makeId(),
+        id: '',
         createdAt: 1112222,
         type: 'NoteTxt',
         isPinned: true,
@@ -114,7 +115,7 @@ function getEmptyNote(txt = '') {
             backgroundColor: '#00d'
         },
         info: {
-            txt, 
+            txt: '', 
         }
     }
 }

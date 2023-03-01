@@ -1,8 +1,41 @@
 .notes-container {
-    columns: auto 220px;
+    margin: auto;
+    width: 1400px;
+    columns: 4 220px;
+    column-width: 220px;
+
     column-gap: 2em;
+    /* background-color: aquamarine; */
 }
-.btn-remove {
+.btn-delete {
     border: none;
     background-color: rgba(240, 248, 255, 0);
+}
+.note-preview .btn-delete{
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.note-preview:hover .btn-delete {
+    opacity: 1;
+}
+
+@media(max-width: 1720px) {
+  .notes-container {
+    /* background-color: rgb(32, 109, 83); */
+    columns: 3 220px;
+    column-gap: 20px;
+    width: 1200px;
+
+  }
+}
+
+@media(max-width: 1420px) {
+  .notes-container {
+    /* background-color: rgb(4, 220, 148); */
+    columns: 2 220px;
+    column-gap: 4em;
+    width:600px;
+
+  }
 }

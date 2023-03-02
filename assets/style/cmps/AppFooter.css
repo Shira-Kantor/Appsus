@@ -5,8 +5,12 @@
     height: 5vh;
     
     padding: 10px;
-    background-color: rgb(17, 17, 18);
+    background-color: lightcoral;
+    color: rgb(64, 134, 175);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px -8px 10px 0px;
 }
 .app-footer p {
-    margin: 0;
+    margin-left: 45vw;
+    margin-top: 10px;
+    font-size: 20px;
 }

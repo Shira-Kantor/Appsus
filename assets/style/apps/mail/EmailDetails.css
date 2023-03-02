@@ -1,0 +1,14 @@
+.email-details {
+    padding: 30px;
+}
+
+.remove-mail {
+    border: 0px solid black;
+    background-color: inherit;
+    margin-right: 5px;
+    border-radius: 30px;
+}
+
+.remove-mail:hover {
+    background-color: lightgray;
+}

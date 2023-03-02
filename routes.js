@@ -38,7 +38,7 @@ const routerOptions = {
         },
 		// {
 		// 	path: '/email/edit/:emailId?',
-		// 	component: MailEdit,
+		// 	component: EmailEdit,
 		// },
 		{
 			path: '/email/edit',

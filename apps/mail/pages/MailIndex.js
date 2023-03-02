@@ -4,19 +4,29 @@ import { eventBus } from '../../../services/event-bus.service.js'
 import MailFilter from '../cmps/MailFilter.js'
 import MailList from '../cmps/MailList.js'
 
+
 export default {
     name: 'MailIndex',
     template: `
         <section class="email-index">
             <nav class="nav-mail">
-                <h1>Mail</h1>
-             <input type="search" placeholder="search email">
-             <RouterLink class="new-email" to="/email/edit"><i class="fa-regular fa-pen">compose</i></RouterLink>
+                <img src="../../../assets/img/gmail.png" alt="gmail-logo" class="gmail-logo" />
+           <h3 class="gmail-txt">Gmail</h3>
+           <!-- <input class="search-mail fa-solid fa-magnifying-glas" type="search" placeholder="&#xf002;   Search    email..."> 
+               -->
+                <mailFilter @filter="setFilterBy"/>
             </nav>
             <!-- <RouterLink to="/email/inbox">INBOX</RouterLink> -->
-      <mailFilter/>
+            <article class="mail-container">
+                <table class="side-filter">
+              <tr><button  class="new-email"> <RouterLink to="/email/edit"><i class="fa-solid fa-pen"> </i>compose</RouterLink></button></tr> 
+                    <tr><td><button class="side inbox-btn"><i class="fa-solid fa-inbox"></i>  Inbox</button></td></tr>
+                    <tr><td><button class="side sent-btn"><i class="fa-regular fa-paper-plane"></i>  Sent</button></td></tr>
+                    <tr><td><button class="side draft-btn">  Drafts</button></td></tr>
+                    <tr><td><button class="side trash-btn"><i class="fa-regular fa-trash-can"></i>  Trash</button></td></tr>
+           </table>
       <mailList :emails="filteredEmails" @remove="removeEmail"  v-if="filteredEmails"/>
-      
+      </article>
         </section>
     `,
     data() {
@@ -53,8 +63,8 @@ export default {
     },
     computed: {
         filteredEmails() {
-            const regex = new RegExp(this.filterBy.body, 'i')
-            return this.emails.filter(email => regex.test(email.body))
+            const regex = new RegExp(this.filterBy.txt, 'i')
+            return this.emails.filter(email => regex.test(email.body)||regex.test(email.subject))
 
         }
     },

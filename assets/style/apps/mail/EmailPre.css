@@ -1,0 +1,39 @@
+/* .form {
+    font-family:  roboto-bold;
+} */
+
+.preview.isRead {
+     font-family:  roboto-regular;
+     background-color: rgba(0, 0, 0, 0.026);
+     
+
+ }
+.from{
+    align-items: start;
+    font-family:  roboto-bold;
+}
+.preview.isRead .from {
+    font-family:  roboto-regular;
+}
+.preview.isRead .subject {
+    font-family:  roboto-regular;
+}
+.subject {
+    align-items:center;
+    font-family:  roboto-bold;
+}
+
+.preview {
+    font-size: 20px;
+    font-family:  roboto-bold;
+    display: grid;
+    justify-items: start;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    /* gap: 100px; */
+    /* background-color: aqua; */
+}
+.email-body {
+    font-size: 20px;
+    font-family:  roboto-regular;
+}

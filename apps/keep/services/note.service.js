@@ -11,7 +11,7 @@ const notesDB = [
         type: 'NoteTxt',
         isPinned: true,
         style: {
-            backgroundColor: '#ffadad'
+            backgroundColor: '#ffd6a5'
         },
         info: {
             txt: utilService.makeLorem(20)
@@ -23,7 +23,7 @@ const notesDB = [
         type: 'NoteTxt',
         isPinned: true,
         style: {
-            backgroundColor: '#00d'
+            backgroundColor: '#ffadad'
         },
         info: {
             txt: utilService.makeLorem(20)
@@ -35,7 +35,7 @@ const notesDB = [
         type: 'NoteTxt',
         isPinned: true,
         style: {
-            backgroundColor: '#00d'
+            backgroundColor: '#ffadad'
         },
         info: {
             txt: utilService.makeLorem(20)
@@ -45,11 +45,11 @@ const notesDB = [
         id: 'n104', type: 'NoteImg',
         isPinned: false,
         info: {
-            url: 'http://some-img/me',
+            url: 'http://unsplash.it/462/340',
             title: 'Bobi and Me'
         },
         style: {
-            backgroundColor: '#00d'
+            backgroundColor: '#ffadad'
         }
     },
     {
@@ -72,21 +72,22 @@ export const notesService = {
     remove,
     save,
     getEmptyNote,
+    getpaletteColor,
 }
 
 function query() {
     return storageService.query(NOTE_KEY)
-        // .then(notes => {
-        //     if (filterBy.txt) {
-        //         const regex = new RegExp(filterBy.txt, 'i')
-        //         notes = notes.filter(note => regex.test(note.info.txt))
-        //     }
-        //     // } if (filterBy.type) {
-        //         // const regex = new RegExp(filterBy.type, 'i')
-        //         // notes = notes.filter(note => regex.test(note.type))
-        //     // }
-        //     return notes
-        // })
+    // .then(notes => {
+    //     if (filterBy.txt) {
+    //         const regex = new RegExp(filterBy.txt, 'i')
+    //         notes = notes.filter(note => regex.test(note.info.txt))
+    //     }
+    //     // } if (filterBy.type) {
+    //         // const regex = new RegExp(filterBy.type, 'i')
+    //         // notes = notes.filter(note => regex.test(note.type))
+    //     // }
+    //     return notes
+    // })
 }
 
 function get(noteId) {
@@ -112,12 +113,26 @@ function getEmptyNote() {
         type: 'NoteTxt',
         isPinned: true,
         style: {
-            backgroundColor: '#00d'
+            backgroundColor: '#ffc6ff'
         },
         info: {
-            txt: '', 
+            txt: '',
         }
     }
+}
+
+function getpaletteColor() {
+    return [
+        '#ffadad',
+        '#ffd6a5',
+        '#fdffb6',
+        '#caffbf',
+        '#9bf6ff',
+        '#ffc6ff',
+        '#fffffc',
+        '#d8e2dc'
+    ]
+
 }
 
 function _createNotes() {

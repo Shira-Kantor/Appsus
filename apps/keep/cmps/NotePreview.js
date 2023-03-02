@@ -3,13 +3,15 @@ export default {
     props: ['note'],
     template: `
         <article class="note"
-                 :style="note.backgroundColor">
+                  :style="{'background-color': note.style?.backgroundColor || 'white'}">
 
              <button class="btn-pin-note" @click="onPinNote(note.id)">
                         <i class="fa-solid fa-thumbtack"></i>
              </button>
         
             <h2  @click="update(note.id)" >{{ note.info.txt }}</h2>
+            <!-- <h1>{{note.type}}</h1> -->
+            <img :src="note.info.url"/>
 
             <div class="btns-section">
                 <button class="btn-delete" @click="removeNote(note.id)">
@@ -29,11 +31,10 @@ export default {
                         @click="showModal = false"
                         title="Close">close</button>
 
-               <div> 
-                 <blockquote contenteditable="true">
-                     <p>{{ printUpdateNote }}</p>
-                 </blockquote>
-               </div>
+               <!-- <div>  -->
+                 <textarea class="" v-model="updateNote">
+                 </textarea>
+               <!-- </div> -->
 
                <button class="btn-save-update" @click="saveUpdate"
                         title="Save">save</button>
@@ -41,8 +42,14 @@ export default {
 
             <!-- PALETTE COLOR -->
             <div v-if="isOpenPalette" class="modal-color-palette">
-                <div class="select-color" @click="selectNoteColor"></div>
+                <div class="select-color"
+                     :key="color"
+                     :style="{'background-color': color}"
+                     v-for="color in paletteColors"
+                     @click="selectNoteColor(color)">
+                </div>
             </div>
+
         </article>
     `,
     data() {
@@ -51,11 +58,26 @@ export default {
             showModal: false,
             updateNote: '',
             color: '',
+            paletteColors: [
+                '#ffadad',
+                '#ffd6a5',
+                '#fdffb6',
+                '#caffbf',
+                '#9bf6ff',
+                '#ffc6ff',
+                '#fffffc',
+                '#d8e2dc'
+            ],
         }
     },
     methods: {
-        selectNoteColor() {
-            console.log('select color')
+        saveColor() {
+            console.log('save color') 
+        },
+        selectNoteColor(color) {
+            console.log('select color',this.note.id)
+            const noteId = this.note.id
+            this.$emit('updateColor',{color, noteId})
             this.isOpenPalette = false
         },
         toggleModal() {
@@ -73,7 +95,7 @@ export default {
             console.log(this.notes[idx].style.backgroundColor)
         },
         update() {
-            console.log('update')
+            console.log('update', this.note.style.backgroundColor)
             this.showModal = !this.showModal
             this.updateNote = this.note.info.txt
         },
@@ -82,7 +104,7 @@ export default {
             this.$emit('pinNote', noteId)
         },
         saveUpdate() {
-            console.log('save changes')
+            console.log('save changes', this.updateNote)
             this.showModal = !this.showModal
         },
     },
@@ -99,4 +121,3 @@ export default {
     },
 }
 
-const paletteColors = ['#ffadad', '#ffd6a5', '#fdffb6', '#caffbf', '#9bf6ff', '#ffc6ff', '#fffffc', '#d8e2dc']

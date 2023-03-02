@@ -12,15 +12,15 @@ export default {
             <NoteFilter @filter="setFilterBy"/>
             <NoteAdd @onAddNote="onAddNote" />
             <section v-if="isPin">
-                <h3>PINNED</h3>
+                <!-- <h3>PINNED</h3> -->
                 
             </section>
             <section>
-                <h3>OTHERS</h3>
+                <!-- <h3>OTHERS</h3> -->
                 <NoteList 
                 :notes="filteredNotes"
                 @pinNote="pinNote"
-                @color="onChangeColor"
+                @updateColor="onChangeColor"
                 @remove="removeNote"/>
             </section>
         </section>
@@ -33,25 +33,33 @@ export default {
         }
     },
     methods: {
-        onChangeColor(color) {
-            console.log('background color', color)
+        onChangeColor({ color, noteId }) {
+            const idx = this.notes.findIndex(note => note.id === noteId)
+            let prevNote = this.notes[idx]
+            prevNote = JSON.parse(JSON.stringify(prevNote))
+            prevNote.style.backgroundColor = color
+            notesService.save(prevNote)
+                .then((savedNote) => {
+                    this.notes[idx] = savedNote
+                })
         },
         removeNote(noteId) {
             notesService.remove(noteId)
-            .then(() => {
-                const idx = this.notes.findIndex(note => note.id === noteId)
-                this.notes.splice(idx, 1)
-                eventBus.emit('show-msg', {txt: 'Note removed', type: 'success'})
-            })
+                .then(() => {
+                    const idx = this.notes.findIndex(note => note.id === noteId)
+                    this.notes.splice(idx, 1)
+                    eventBus.emit('show-msg', { txt: 'Note removed', type: 'success' })
+                })
         },
         setFilterBy(filterBy) {
+            console.log(filterBy)
             this.filterBy = filterBy
         },
         onAddNote(newNote) {
             notesService.save(newNote)
-            .then(savedNote => {
-                this.notes.unshift(savedNote)
-            })
+                .then(savedNote => {
+                    this.notes.unshift(savedNote)
+                })
         },
         pinNote(noteId) {
             this.isPin = true
@@ -63,10 +71,21 @@ export default {
     },
     computed: {
         filteredNotes() {
+            if (this.filterBy.type === 'NoteTodos') {
+                return this.notes.filter(note => note.type === 'NoteTodos')
+            }
+            if (this.filterBy.type === 'NoteImg') {
+                return this.notes.filter(note => note.type === 'NoteImg')
+            }
+            if(this.filterBy === {})  {
+                notesService.query()
+                .then(notes => {
+                    console.log(notes)
+                    this.notes = notes
+                })
+            }
             const regex = new RegExp(this.filterBy.txt, 'i')
             return this.notes.filter(note => regex.test(note.info.txt))
-
-
         },
     },
     created() {

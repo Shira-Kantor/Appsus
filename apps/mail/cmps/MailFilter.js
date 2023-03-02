@@ -1,10 +1,7 @@
 export default {
     template: `
         <section class="mail-filter">
-            <!-- <input 
-                v-model="filterBy.title"
-                placeholder="Search"
-                type="text" /> -->
+         
                 <input 
                 v-model="filterBy.txt" 
                 @input="filter"  
@@ -17,7 +14,7 @@ export default {
     `,
      data() {
         return {
-            filterBy: { txt: '' }
+            filterBy: { txt: '' ,sent:'' ,trash:'', draft:''}
             // filterBy: ''
         }
     },

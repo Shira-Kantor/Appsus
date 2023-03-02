@@ -8,8 +8,16 @@
      
 
  }
+ .preview.isStared .btn-star{
+    color: rgb(255, 60, 0);
+    opacity: 1;
+ }
 .from{
     align-items: start;
+    font-family:  roboto-bold;
+}
+.subject {
+    align-items:start;
     font-family:  roboto-bold;
 }
 .preview.isRead .from {
@@ -17,10 +25,6 @@
 }
 .preview.isRead .subject {
     font-family:  roboto-regular;
-}
-.subject {
-    align-items:center;
-    font-family:  roboto-bold;
 }
 
 .preview {

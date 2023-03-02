@@ -1,4 +1,5 @@
 import MailPreview from './MailPreview.js'
+import { emailService } from '../services/mail.service.js'
 
 
 export default {
@@ -9,9 +10,10 @@ export default {
            <h3>Inbox</h3>
            <table>
            
-            <tr v-for="email in emails" :key="email.id" class="email-line" @click="markEmailRead(email)">
+            <tr v-for="email in emails" :key="email.id" class="email-line">
                     <!-- <pre>{{email}}</pre> -->
-                   <td class="email-txt"> <RouterLink :to="'/email/' + email.id"> <MailPreview :email="email"/></RouterLink> </td>
+                    <td>   <button class="btn-star" @click="isStared(email)"><i class="fa-regular fa-star"></i></button></td>
+                   <td   @click.prevent="markEmailRead(email)" class="email-txt"> <RouterLink :to="'/email/' + email.id"> <MailPreview :email="email"/></RouterLink> </td>
 
                     <!-- <RouterLink :to="'/email/edit/'+email.id">Edit</RouterLink> | -->
                     <td>   <button class="btn-removed" @click="remove(email.id)"><i class="fa-regular fa-trash-can"></i></button></td>
@@ -26,12 +28,22 @@ export default {
             this.$emit('remove', emailId)
         },
         onRead(email) {
-            console.log('read',email);
             email.isRead = !email.isRead
         },
-       
+        isStared(email) {
+            email.isStared = !email.isStared
+        },
+        markEmailRead(email) {
+            email.isRead = true
+            // emailService.save(email)
+            console.log('markEmailRead', email)
+        }
+
     },
     components: {
         MailPreview
     }
+
+
+
 }

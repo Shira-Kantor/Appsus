@@ -20,9 +20,9 @@ export default {
             <article class="mail-container">
                 <table class="side-filter">
               <tr><button  class="new-email"> <RouterLink to="/email/edit"><i class="fa-solid fa-pen"> </i>compose</RouterLink></button></tr> 
-                    <tr><td><button class="side inbox-btn"><i class="fa-solid fa-inbox"></i>  Inbox</button></td></tr>
+                    <tr><td><button class="side inbox-btn"><i class="fa-solid fa-inbox"></i>  Inbox {{num}}</button></td></tr>
                     <tr><td><button class="side sent-btn"><i class="fa-regular fa-paper-plane"></i>  Sent</button></td></tr>
-                    <tr><td><button class="side draft-btn">  Drafts</button></td></tr>
+                    <tr><td><button class="side draft-btn"> Drafts </button></td></tr>
                     <tr><td><button class="side trash-btn"><i class="fa-regular fa-trash-can"></i>  Trash</button></td></tr>
            </table>
       <mailList :emails="filteredEmails" @remove="removeEmail"  v-if="filteredEmails"/>
@@ -33,7 +33,8 @@ export default {
         return {
             emails: [],
             filterBy: {},
-            selectedMailId: null
+            selectedMailId: null,
+            num: emailService.gEmails.length
 
         }
     },
@@ -64,8 +65,10 @@ export default {
     computed: {
         filteredEmails() {
             const regex = new RegExp(this.filterBy.txt, 'i')
-            return this.emails.filter(email => regex.test(email.body)||regex.test(email.subject))
-
+            let emails = this.emails
+            emails = emails.filter(email => regex.test(email.body) || regex.test(email.subject))
+            // && email.from.includes(this.filterBy.from) && email.isStared === this.filterBy.isStared &&
+            return emails
         }
     },
     components: {

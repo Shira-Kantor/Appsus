@@ -14,7 +14,8 @@ var gEmails = [{
      ${new Date().getDate()}/${new Date().getDay()}/${new Date().getFullYear()}` ,
     removedAt: null,
     from: 'momo@momo.com',
-    to: 'user@appsus.com'
+    to: 'user@appsus.com',
+    isStared: true
 },
 {
     id: 'e102',
@@ -22,9 +23,24 @@ var gEmails = [{
     body: 'I just to check how are you',
     isRead: false,
     sentAt: 15511339305,
-    removedAt: null, from: 'user@appsus.com',
-    to: 'jojo@jojo.com'
-}]
+    removedAt: null,
+     from: 'user@appsus.com',
+    to: 'jojo@jojo.com',
+    isStared: false
+
+},
+{
+    id: 'e103',
+    subject: 'BIG SALE',
+    body: 'Last day for end of season elimination! hurry up hurry up hurry up hurry up hurry up hurry up',
+    isRead: false,
+    sentAt: 15511348596,
+    removedAt: null,
+    from: 'user@appsus.com',
+    to: 'popo@jojo.com',
+    isStared: false
+},
+]
 
 
 _createEmails()
@@ -34,6 +50,7 @@ export const emailService = {
     remove,
     save,
     getNewEmail,
+    gEmails
 }
 
 function query(filterBy = {}) {
@@ -59,7 +76,7 @@ function remove(emailId) {
 
 function save(email) {
     console.log('email',email)
-    console.log('email.id',email.id)
+    // console.log('email.id',email.id)
     if (email.id) {
         return storageService.put(EMAIL_KEY, email)
     } else {

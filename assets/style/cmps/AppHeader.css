@@ -1,7 +1,16 @@
 .app-header {
-  background-color: var(--clr5);
-  color: var(--secondary-clr1);
+  background-color: lightcoral;
+  color: rgb(64, 134, 175);
   padding: 1em;
+  display: flex;
+  gap: 100px;
+ align-items: center;
+ font-family: roboto-bold;
+ font-size: 20px;
+ box-shadow: inset;
+ margin-top: 40px;
+ box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
 }
 
 /* @media(max-width: 720px) {

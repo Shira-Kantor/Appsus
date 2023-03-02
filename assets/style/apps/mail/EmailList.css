@@ -5,8 +5,11 @@
     margin-left: 60px;
 
 }
+.btn-star {
 
-.btn-removed, .btn-read {
+}
+
+.btn-removed, .btn-read , .btn-star {
     cursor: pointer;
     opacity: 0;
     font-size: 1.4rem;
@@ -23,9 +26,15 @@
 .btn-removed:hover , .btn-read:hover{
    background-color: rgb(168, 162, 162);
 }
+.btn-star:hover {
+    background-color: rgb(168, 162, 162);
+    color: yellow;
+
+}
 
 .email-line:hover  .btn-removed ,
-.email-line:hover .btn-read{
+.email-line:hover .btn-read,
+.email-line:hover .btn-star{
     opacity: 1;
 }
 

@@ -47,18 +47,18 @@ const routerOptions = {
 			path: '/email/edit',
 			component: MailEdit,
 		},
-		{
-			path: '/email/sent',
-			component: MailSent,
-		},
-		{
-			path: '/email/draft',
-			component: MailDraft,
-		},
-		{
-			path: '/email/trash',
-			component: MailTrash,
-		},
+		// {
+		// 	path: '/email/sent',
+		// 	component: MailSent,
+		// },
+		// {
+		// 	path: '/email/draft',
+		// 	component: MailDraft,
+		// },
+		// {
+		// 	path: '/email/trash',
+		// 	component: MailTrash,
+		// },
 		{
 			path: '/:catchAll(.*)',
 			component: HomePage,

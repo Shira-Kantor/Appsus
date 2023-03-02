@@ -22,6 +22,11 @@ export default {
         </table>
         </section>
     `,
+    data() {
+        return {
+
+        }
+    },
     methods: {
         remove(emailId) {
             this.$emit('remove', emailId)

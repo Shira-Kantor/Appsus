@@ -1,4 +1,5 @@
 import MailPreview from './MailPreview.js'
+import { emailService } from '../services/mail.service.js'
 
 
 export default {
@@ -26,9 +27,14 @@ export default {
             this.$emit('remove', emailId)
         },
         onRead(email) {
-            console.log('read',email);
+            // console.log('read',email);
             email.isRead = !email.isRead
         },
+        markEmailRead(email) {
+            email.isRead = true
+            emailService.save(email)
+            console.log('markEmailRead',email)
+        }
        
     },
     components: {

@@ -20,10 +20,10 @@ export default {
             <article class="mail-container">
                 <table class="side-filter">
               <tr><button  class="new-email"> <RouterLink to="/email/edit"><i class="fa-solid fa-pen"> </i>compose</RouterLink></button></tr> 
-                    <tr><td><button class="side inbox-btn"><i class="fa-solid fa-inbox"></i>  Inbox</button></td></tr>
-                    <tr><td><button class="side sent-btn"><i class="fa-regular fa-paper-plane"></i>  Sent</button></td></tr>
-                    <tr><td><button class="side draft-btn">  Drafts</button></td></tr>
-                    <tr><td><button class="side trash-btn"><i class="fa-regular fa-trash-can"></i>  Trash</button></td></tr>
+                    <tr><td><button class="side inbox-btn"><RouterLink to="/email"></RouterLink><i class="fa-solid fa-inbox"></i>  Inbox</button></td></tr>
+                    <tr><td><button class="side sent-btn"><RouterLink to="/email/sent"></RouterLink><i class="fa-regular fa-paper-plane"></i>  Sent</button></td></tr>
+                    <tr><td><button class="side draft-btn"><RouterLink to="/email/draft"></RouterLink>  Drafts</button></td></tr>
+                    <tr><td><button class="side trash-btn"><RouterLink to="/email/trash"></RouterLink><i class="fa-regular fa-trash-can"></i>  Trash</button></td></tr>
            </table>
       <mailList :emails="filteredEmails" @remove="removeEmail"  v-if="filteredEmails"/>
       </article>

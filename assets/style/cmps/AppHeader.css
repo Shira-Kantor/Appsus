@@ -1,15 +1,15 @@
 .app-header {
-  background-color: lightcoral;
-  color: rgb(64, 134, 175);
+  background-color: rgb(240, 214, 214);
+  color: rgb(99, 99, 100);
   padding: 1em;
   display: flex;
   gap: 100px;
- align-items: center;
- font-family: roboto-bold;
- font-size: 20px;
- box-shadow: inset;
- margin-top: -10px;
- box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  align-items: center;
+  font-family: roboto-bold;
+  font-size: 20px;
+  box-shadow: inset;
+  margin-top: -10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 
 }
 

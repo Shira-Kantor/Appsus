@@ -8,6 +8,7 @@ export default {
          <h4>{{email.body}}</h4>
          <h4>{{email.sentAt}}</h4>
          <h4>{{date}}</h4>
+         <button class="remove-mail"><i class="fa-regular fa-trash-can"></i></button>
 
 
     <RouterLink to="/email">Back to list</RouterLink>
@@ -20,6 +21,12 @@ export default {
             date: null
         }
     },
+    methods: {
+        remove(emailId) {
+           
+            this.$emit('remove', emailId)
+        },
+     },
     created() {
         const { emailId } = this.$route.params
         emailService.get(emailId).then((email) => (this.email = email))

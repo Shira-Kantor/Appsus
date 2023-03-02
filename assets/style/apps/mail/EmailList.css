@@ -30,12 +30,12 @@
 }
 
 .email-line {
-    
+    box-shadow: 0px 1px 0px 0px rgb(144 140 140);
 }
 
 .email-line:hover {
     /* background-color: grey; */
-    box-shadow: 10px 5px 5px 10px rgb(144, 140, 140);
+    box-shadow: 1px 5px 0px 0px rgb(144 140 140);
 }
 
 .email-txt {

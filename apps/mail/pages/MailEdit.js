@@ -8,11 +8,12 @@ export default {
         <section class="email-edit">
         <h2>{{(email.id)? 'Edit' : 'Add'}} a email</h2>
             <form @submit.prevent="save">
-                <input type="text" v-model="email.to" placeholder="To">
-                <input type="text" v-model="email.subject" placeholder="Subject">
-                <input type="text" v-model="email.body" placeholder="Enter your email">
-               
-                <button>Save</button>
+                <table>
+                <tr><input class="new-to" type="text" v-model="email.to" placeholder="To"></tr>
+               <tr> <input class="new-subject" type="text" v-model="email.subject" placeholder="Subject"></tr>
+               <tr>  <input class="new-body" type="text" v-model="email.body" placeholder="Enter your email"></tr>
+               </table>
+                <button class="send-btn">Send</button>
             </form>
         </section>
     `,

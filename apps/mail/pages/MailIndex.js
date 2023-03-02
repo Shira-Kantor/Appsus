@@ -40,11 +40,11 @@ export default {
     },
 
     created() {
-            emailService.query()
-                .then(emails => {
-                    console.log('emails', emails)
-                    this.emails = emails
-                })
+        emailService.query()
+            .then(emails => {
+                console.log('emails', emails)
+                this.emails = emails
+            })
     },
     methods: {
         removeEmail(emailId) {
@@ -65,8 +65,10 @@ export default {
     computed: {
         filteredEmails() {
             const regex = new RegExp(this.filterBy.txt, 'i')
-            return this.emails.filter(email => regex.test(email.body)||regex.test(email.subject))
-
+            let emails = this.emails
+            emails = emails.filter(email => regex.test(email.body) || regex.test(email.subject))
+            // && email.from.includes(this.filterBy.from) && email.isStared === this.filterBy.isStared &&
+            return emails
         }
     },
     components: {

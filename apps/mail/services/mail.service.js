@@ -14,7 +14,8 @@ var gEmails = [{
      ${new Date().getDate()}/${new Date().getDay()}/${new Date().getFullYear()}` ,
     removedAt: null,
     from: 'momo@momo.com',
-    to: 'user@appsus.com'
+    to: 'user@appsus.com',
+    isStared: true
 },
 {
     id: 'e102',
@@ -24,7 +25,9 @@ var gEmails = [{
     sentAt: 15511339305,
     removedAt: null,
      from: 'user@appsus.com',
-    to: 'jojo@jojo.com'
+    to: 'jojo@jojo.com',
+    isStared: false
+
 },
 {
     id: 'e103',
@@ -34,7 +37,8 @@ var gEmails = [{
     sentAt: 15511348596,
     removedAt: null,
     from: 'user@appsus.com',
-    to: 'popo@jojo.com'
+    to: 'popo@jojo.com',
+    isStared: false
 },
 ]
 

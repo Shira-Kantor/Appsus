@@ -25,3 +25,8 @@
     /* background-color: rgb(85, 108, 129); */
     width: 300px;
 }
+
+.color-palette {
+    border: 1px solid rgb(130, 122, 122);
+    border-radius: 50%;
+}

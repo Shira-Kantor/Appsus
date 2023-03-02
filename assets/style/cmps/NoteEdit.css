@@ -1,25 +1,72 @@
 .modal {
-    display: flex;
-    flex-direction: column;
-  
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    border: 1px solid #666;
-    border-radius: 10px;
-    transition: all .3s;
-    overflow: hidden;
-    background-color: white;
-    width: 400px;
-    height: 500px;
-  }
-  
-  .modal .close-btn {
-    align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  border: 1px solid #666;
+  border-radius: 10px;
+  transition: all .3s;
+  overflow: hidden;
+  background-color: white;
+  width: 400px;
+  height: 500px;
+}
+
+.modal .btn-close {
+  align-self: flex-start;
+  font-size: 1.4em;
+  margin: 8px 8px 0;
+  padding: 0 8px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+/* .btn-save-update {
+    align-self: flex-start;
     font-size: 1.4em;
     margin: 8px 8px 0;
     padding: 0 8px;
     cursor: pointer;
-  }
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+  } */
+
+.form-add-note {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  /* background-color: #ddd6d6; */
+}
+
+.form-add-note input {
+  width: 40vw;
+}
+
+.btn-save-update {
+  font-size: 1.4em;
+
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  align-self: flex-start;
+
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+ 
+}
+
+/* addbook */
+.btn-save-new-update {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+

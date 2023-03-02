@@ -11,25 +11,35 @@ export default {
         <section>
             <NoteFilter @filter="setFilterBy"/>
             <NoteAdd @onAddNote="onAddNote" />
-            <NoteList 
+            <section v-if="isPin">
+                <h3>PINNED</h3>
+                
+            </section>
+            <section>
+                <h3>OTHERS</h3>
+                <NoteList 
                 :notes="filteredNotes"
+                @pinNote="pinNote"
+                @color="onChangeColor"
                 @remove="removeNote"/>
+            </section>
         </section>
     `,
     data() {
         return {
             notes: [],
             filterBy: {},
-           
+            isPin: false,
         }
     },
     methods: {
+        onChangeColor(color) {
+            console.log('background color', color)
+        },
         removeNote(noteId) {
-            console.log(noteId)
             notesService.remove(noteId)
             .then(() => {
                 const idx = this.notes.findIndex(note => note.id === noteId)
-                console.log(idx)
                 this.notes.splice(idx, 1)
                 eventBus.emit('show-msg', {txt: 'Note removed', type: 'success'})
             })
@@ -40,15 +50,23 @@ export default {
         onAddNote(newNote) {
             notesService.save(newNote)
             .then(savedNote => {
-                console.log('saved note', savedNote) 
-                this.notes.push(savedNote)
+                this.notes.unshift(savedNote)
             })
-        }
+        },
+        pinNote(noteId) {
+            this.isPin = true
+            console.log('pin noteid', noteId)
+            const idx = this.notes.findIndex(note => note.id === noteId)
+            console.log('note idx', idx)
+            this.notes[idx].isPinned = true
+        },
     },
     computed: {
         filteredNotes() {
             const regex = new RegExp(this.filterBy.txt, 'i')
             return this.notes.filter(note => regex.test(note.info.txt))
+
+
         },
     },
     created() {

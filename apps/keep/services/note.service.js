@@ -11,7 +11,7 @@ const notesDB = [
         type: 'NoteTxt',
         isPinned: true,
         style: {
-            backgroundColor: '#00d'
+            backgroundColor: '#ffadad'
         },
         info: {
             txt: utilService.makeLorem(20)

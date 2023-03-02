@@ -6,7 +6,7 @@ export default {
     props: ['emails'],
     template: `
         <section class="email-list" v-if="emails">
-           <h3>hey from list</h3>
+           <h3>Inbox</h3>
            <table>
            
             <tr v-for="email in emails" :key="email.id" class="email-line">
@@ -15,6 +15,7 @@ export default {
 
                     <!-- <RouterLink :to="'/email/edit/'+email.id">Edit</RouterLink> | -->
                     <td>   <button class="btn-removed" @click="remove(email.id)"><i class="fa-regular fa-trash-can"></i></button></td>
+                    <td>   <button class="btn-read" @click="read"><i class="fa-regular fa-envelope-open"></i></button></td>
             </tr>
           
         </table>

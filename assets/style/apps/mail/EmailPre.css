@@ -1,0 +1,20 @@
+.preview-bold {
+    font-family:  roboto-bold;
+}
+.preview-regular {
+    font-family:  roboto-regular;
+}
+.from{
+    align-items: start;
+}
+.subject {
+    align-items: end;
+}
+.preview {
+    display: grid;
+    justify-items: start;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    /* gap: 100px; */
+    /* background-color: aqua; */
+}

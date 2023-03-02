@@ -1,9 +1,35 @@
-.email-index {
-
+.nav-mail {
+display: flex;
+gap: 10px;
+margin-bottom: 50px;
+margin-top: 20px;
 }
 
 .new-email{
     /* color: blueviolet; */
     /* font-size: 50px; */
-    
+    border-radius: 20px;
+    border: 2px solid rgb(89, 85, 75);
+    background-color: #ede9e9;
+    padding: 20px;
+    width: 150px;
+    height: 60px;
+   
+  
+}
+.mail-container {
+    display: flex;
+}
+.search-mail {
+margin-left: 40px;
+border-radius: 30px;
+
+}
+.gmail-logo {
+    width: 50px;
+    height: 40px;
+    margin-left: 20px;
+}
+.gmail-txt {
+    font-size: 30px;
 }

@@ -4,19 +4,23 @@ import { eventBus } from '../../../services/event-bus.service.js'
 import MailFilter from '../cmps/MailFilter.js'
 import MailList from '../cmps/MailList.js'
 
+
 export default {
     name: 'MailIndex',
     template: `
         <section class="email-index">
             <nav class="nav-mail">
-                <h1>Mail</h1>
-             <input type="search" placeholder="search email">
-             <RouterLink class="new-email" to="/email/edit"><i class="fa-regular fa-pen">compose</i></RouterLink>
+                <img src="../../../assets/img/gmail.png" alt="gmail-logo" class="gmail-logo" />
+           <h3 class="gmail-txt">Gmail</h3>
+           
+                <input class="search-mail fa-solid fa-magnifying-glas" type="search" placeholder="&#xf002;   Search    email...">
             </nav>
             <!-- <RouterLink to="/email/inbox">INBOX</RouterLink> -->
-      <mailFilter/>
+            <article class="mail-container">
+          <RouterLink class="new-email" to="/email/edit"><i class="fa-solid fa-pen">  compose</i></RouterLink>
+            <mailFilter/>
       <mailList :emails="filteredEmails" @remove="removeEmail"  v-if="filteredEmails"/>
-      
+      </article>
         </section>
     `,
     data() {

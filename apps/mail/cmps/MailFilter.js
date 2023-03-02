@@ -5,7 +5,7 @@ export default {
                 v-model="filterBy.title"
                 placeholder="Search"
                 type="text" /> -->
-            <h2> hey from filter</h2>
+         
         </section>
     `,
      }

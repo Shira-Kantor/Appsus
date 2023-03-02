@@ -2,10 +2,11 @@
     padding: 40px;
     background-color: rgb(246, 238, 238);
     border-radius: 30px;
+    margin-left: 60px;
 
 }
 
-.btn-removed {
+.btn-removed, .btn-read {
     cursor: pointer;
     opacity: 0;
     font-size: 1.4rem;
@@ -19,11 +20,12 @@
     background-color: rgba(255, 253, 253, 0);
   
 }
-.btn-removed:hover {
+.btn-removed:hover , .btn-read:hover{
    background-color: rgb(168, 162, 162);
 }
 
-.email-line:hover  .btn-removed {
+.email-line:hover  .btn-removed ,
+.email-line:hover .btn-read{
     opacity: 1;
 }
 
@@ -37,7 +39,7 @@
 }
 
 .email-txt {
-    width: 80vw;
+    width: 70vw;
     padding: 0.8rem;
     display: grid;
     grid-template-columns: auto;

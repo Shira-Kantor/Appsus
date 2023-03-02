@@ -2,10 +2,33 @@
     box-sizing: border-box;
     display: block;
 
-    margin: auto;
-    margin-top: 20px;
+    /* margin: auto; */
+    /* margin-top: 20px; */
     width: 40vw;
     border-radius: 5px;
     border: none;
     background-color: #f0eeee;
+}
+
+.btns-filter {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.btns-filter button {
+    border: none;
+    background-color: #f0eeee00;
+    font-size: large;
+}
+.search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.search-section button{
+   
+    border: none;
+    background-color: #f0eeee00;
 }

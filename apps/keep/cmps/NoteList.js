@@ -9,6 +9,7 @@ export default {
                       class="note-preview">
 
              <NotePreview :note="note"
+                          @updateColor="$emit('updateColor', $event)"
                           @remove="$emit('remove', $event)"/>
             </article>
         </section>

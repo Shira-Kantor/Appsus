@@ -20,10 +20,10 @@ export default {
             <article class="mail-container">
                 <table class="side-filter">
               <tr><button  class="new-email"> <RouterLink to="/email/edit"><i class="fa-solid fa-pen"> </i>compose</RouterLink></button></tr> 
-                    <tr><td><button class="side inbox-btn"><i class="fa-solid fa-inbox"></i>  Inbox {{num}}</button></td></tr>
-                    <tr><td><button class="side sent-btn"><i class="fa-regular fa-paper-plane"></i>  Sent</button></td></tr>
-                    <tr><td><button class="side draft-btn"> Drafts </button></td></tr>
-                    <tr><td><button class="side trash-btn"><i class="fa-regular fa-trash-can"></i>  Trash</button></td></tr>
+                    <tr><td><button  @click="setFilterBy('inbox')" class="side inbox-btn"><i class="fa-solid fa-inbox"></i>  Inbox {{num}}</button></td></tr>
+                    <tr><td><button  @click="setFilterBy('sent')" class="side sent-btn"><i class="fa-regular fa-paper-plane"></i>  Sent</button></td></tr>
+                    <tr><td><button  @click="setFilterBy('stared')" class="side stared-btn"><i class="fa-regular fa-star"></i> Stared </button></td></tr>
+                    <tr><td><button  @click="setFilterBy('trash')" class="side trash-btn"><i class="fa-regular fa-trash-can"></i>  Trash</button></td></tr>
            </table>
       <mailList :emails="filteredEmails" @remove="removeEmail"  v-if="filteredEmails"/>
       </article>
@@ -34,7 +34,7 @@ export default {
             emails: [],
             filterBy: {},
             selectedMailId: null,
-            num: emailService.gEmails.length
+            // inboxNum: ''
 
         }
     },
@@ -48,6 +48,7 @@ export default {
     },
     methods: {
         removeEmail(emailId) {
+            this.num = this.num-1
             emailService.remove(emailId)
                 .then(() => {
                     const idx = this.emails.findIndex(email => email.id === emailId)
@@ -59,17 +60,36 @@ export default {
                 })
         },
         setFilterBy(filterBy) {
+            // console.log('filterBy',filterBy)
             this.filterBy = filterBy
         }
     },
     computed: {
         filteredEmails() {
-            const regex = new RegExp(this.filterBy.txt, 'i')
+            // console.log(this.filterBy);
             let emails = this.emails
-            emails = emails.filter(email => regex.test(email.body) || regex.test(email.subject))
-            // && email.from.includes(this.filterBy.from) && email.isStared === this.filterBy.isStared &&
-            return emails
-        }
+            if (this.filterBy === 'inbox') {
+                return this.emails.filter(email => email.to === 'user@appsus.com')
+            }
+            if (this.filterBy === 'sent') {
+                return this.emails.filter(email => email.from === 'user@appsus.com')
+            }
+            if (this.filterBy === 'stared') {
+                return this.emails.filter(email => email.isStared)
+            }
+            // if (this.filterBy === 'trash') {
+            //     return this.emails.filter(email => email.removedAt !== null)
+            // }
+           
+            const regexTxt = new RegExp(this.filterBy.txt, 'i')
+            emails = emails.filter(email => regexTxt.test(email.body) || regexTxt.test(email.subject))
+             return emails
+        },
+        num() {
+            //   if (this.filterBy === 'inbox') {
+                return this.emails.filter(email => email.to === 'user@appsus.com').length
+        // }
+    }
     },
     components: {
         MailFilter,

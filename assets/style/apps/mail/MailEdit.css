@@ -26,13 +26,15 @@
     text-align: center;
     font-size: 20px;
 }
-
-
-
 .send-btn {
     border-radius: 15px;
-    margin-left: 45vw;
+    margin-left: 22vw;
     margin-top: 20px;
     width: 5vw;
-
+}
+.back-btn {
+    border-radius: 15px;
+    margin-left: 47vw;
+    width: 10vw;
+    margin-left: 15vw;
 }

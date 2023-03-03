@@ -1,14 +1,22 @@
 .email-details {
-    padding: 30px;
+    margin-left: 160px;;
+    text-align: start;
+    margin-top: 160px;
+    font-size: 20px;
 }
-
+.email-subject{
+    font-family: roboto-bold;
+}
 .remove-mail {
     border: 0px solid black;
     background-color: inherit;
     margin-right: 5px;
     border-radius: 30px;
 }
-
+.email-body , .sentAt-txt , .email-from {
+    font-family: roboto-regular;
+    /* color:aqua */
+}
 .remove-mail:hover {
     background-color: lightgray;
 }

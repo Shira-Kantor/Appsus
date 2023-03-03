@@ -13,6 +13,7 @@ export default {
                <tr> <input class="new-subject" type="text" v-model="email.subject" placeholder="Subject"></tr>
                <tr>  <input class="new-body" type="text" v-model="email.body" placeholder="Enter your email"></tr>
                </table>
+               <button class="back-btn"> <RouterLink to="/email">Back to list</RouterLink></button>
                 <button class="send-btn">Send</button>
             </form>
         </section>

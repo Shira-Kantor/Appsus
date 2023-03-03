@@ -1,5 +1,6 @@
 import { eventBus } from '../services/event-bus.service.js'
 
+
 export default {
 	template: `
         <section :class="msg.type" v-if="msg.txt" class="user-msg">

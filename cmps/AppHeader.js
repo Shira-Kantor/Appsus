@@ -9,7 +9,8 @@ export default {
                 <router-link to="/">Home</router-link> | 
                 <router-link to="/about">About</router-link> |
                 <router-link to="/email">Email</router-link> |
-                <router-link to="/note">Note</router-link>
+                <router-link to="/note">Note</router-link> |
+                <!-- <router-link to="/book">Book</router-link>  -->
 
             </nav>
         </header>

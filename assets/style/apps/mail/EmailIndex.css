@@ -43,6 +43,9 @@ border-radius: 30px;
 
 }
 .gmail-logo {
+    background-image: url('../../../img/gmail.png');
+    background-repeat: no-repeat;
+    background-size: contain;
     width: 50px;
     height: 40px;
     margin-left: 20px;

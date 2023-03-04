@@ -10,7 +10,7 @@ export default {
     template: `
         <section class="email-index">
             <nav class="nav-mail">
-                <img src="../../../assets/img/gmail.png" alt="gmail-logo" class="gmail-logo" />
+                <div class="gmail-logo">j</div>
            <h3 class="gmail-txt">Gmail</h3>
            <!-- <input class="search-mail fa-solid fa-magnifying-glas" type="search" placeholder="&#xf002;   Search    email..."> 
                -->

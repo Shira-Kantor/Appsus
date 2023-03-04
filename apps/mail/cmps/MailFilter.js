@@ -12,15 +12,16 @@ export default {
          
         </section>
     `,
-     data() {
+    data() {
         return {
-            filterBy: { txt: '' ,sent:'' ,trash:'', draft:''}
+            filterBy: { }
             // filterBy: ''
         }
     },
     methods: {
         filter() {
+            // this.filterBy.type = 'txt'
             this.$emit('filter', this.filterBy)
         }
     }
-     }
+}

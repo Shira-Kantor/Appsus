@@ -1,24 +1,36 @@
-/* .form {
-    font-family:  roboto-bold;
-} */
+.email-txt {
+   width:78vw;
+}
 
 .preview.isRead {
      font-family:  roboto-regular;
      background-color: rgba(0, 0, 0, 0.026);
-     
-
  }
  .preview.isStared .btn-star{
     color: rgb(255, 60, 0);
     opacity: 1;
  }
-.from{
+td .from{
+    align-items: start;
+  width: 300px;
+    font-family:  roboto-bold;
+}
+td .subject {
+    
+    width: 300px;
     align-items: start;
     font-family:  roboto-bold;
 }
-.subject {
-    align-items:start;
-    font-family:  roboto-bold;
+.email-body {
+    width: 800px;
+    font-size: 20px;
+    font-family:  roboto-regular;
+    align-items: start;
+}
+td .email-date{
+    font-family:  roboto-regular;
+    text-align: end;
+
 }
 .preview.isRead .from {
     font-family:  roboto-regular;
@@ -30,14 +42,6 @@
 .preview {
     font-size: 20px;
     font-family:  roboto-bold;
-    display: grid;
-    justify-items: start;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 60px;
-    /* gap: 100px; */
-    /* background-color: aqua; */
-}
-.email-body {
-    font-size: 20px;
-    font-family:  roboto-regular;
+    width:79vw;
+   
 }

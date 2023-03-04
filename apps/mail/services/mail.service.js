@@ -22,7 +22,8 @@ var gEmails = [{
     subject: 'Hey you!',
     body: 'I just to check how are you',
     isRead: false,
-    sentAt: 15511339305,
+    sentAt:  `${new Date().getHours()} : ${new Date().getMinutes()}
+    ${new Date().getDate()}/${new Date().getDay()}/${new Date().getFullYear()}`,
     removedAt: null,
      from: 'user@appsus.com',
     to: 'jojo@jojo.com',
@@ -34,11 +35,38 @@ var gEmails = [{
     subject: 'BIG SALE',
     body: 'Last day for end of season elimination! hurry up hurry up hurry up hurry up hurry up hurry up',
     isRead: false,
-    sentAt: 15511348596,
+    sentAt:  `${new Date().getHours()} : ${new Date().getMinutes()}
+    ${new Date().getDate()}/${new Date().getDay()}/${new Date().getFullYear()}` ,
     removedAt: null,
     from: 'user@appsus.com',
     to: 'popo@jojo.com',
-    isStared: false
+    isStared: false,
+
+},
+{
+    id: 'e104',
+    subject: 'Actively Hiring',
+    body: '29 Companies Actively Hiring Now! Check out all the open roles at companies within todays 8 most-searched industries including healthcare, financial services & more.',
+    isRead: false,
+    sentAt:  `${new Date().getHours()} : ${new Date().getMinutes()}
+    ${new Date().getDate()}/${new Date().getDay()}/${new Date().getFullYear()}` ,
+    removedAt: null,
+    from: 'uri@glass.com',
+    to: 'user@appsus.com',
+    isStared: false,
+},
+{
+    id: 'e105',
+    subject: 'Google Cloud Platform ',
+    body: 'We are writing to let you know about the following updates to the Third-Party Subprocessors we engage for Google Cloud Platform:No action is required on your part.You can find information about the tasks our Subprocessors perform on our Google Cloud Platform Subprocessors list.Thanks for choosing Google Cloud Platform.',
+    isRead: false,
+    sentAt:  `${new Date().getHours()} : ${new Date().getMinutes()}
+    ${new Date().getDate()}/${new Date().getDay()}/${new Date().getFullYear()}` ,
+    removedAt: null,
+    from: 'meir@google.com',
+    to: 'user@appsus.com',
+    isStared: false,
+ 
 },
 ]
 

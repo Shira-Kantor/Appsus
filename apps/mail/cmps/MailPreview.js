@@ -2,24 +2,33 @@ export default {
   // name: 'pre',
   props: ['email'],
   template: `
-  <section class="email-view preview" :class="{isRead: email.isRead, isStared: email.isStared}">
-    <pre class="from" > {{email.from}} </pre>
-    <pre class="subject"> {{email.subject}}</pre>
-    <pre class="email-body"> {{email.body}}</pre>
+  <table class="email-view preview" :class="{isRead: email.isRead, isStared: email.isStared}">
+   <tr> <td class="from" > {{email.from}} </td>
+    <td class="subject"> {{email.subject}}</td>
+    <td class="email-body"> {{showBody}}</td>
+    <td class="email-date"> {{date}}</td></tr>
     <!-- <pre class="email-body"> {{showBody}}</pre> -->
 
     
-  </section>
+  </table>
     
  `,
- created() {
-
-  //  body = this.body.slice(0,15)
- },
- computed: {
-  showBody() {
-          // return this.body.slice(0, 6) ;
-     
+  data() {
+    return {
+      date: this.email.sentAt
+    }
   },
-},
+  created() {
+
+    //  body = this.body.slice(0,15)
+  },
+  computed: {
+    showBody() {
+      if (this.email.body.length > 90)
+        return this.email.body.slice(0, 90) + '...';
+      return this.email.body;
+      // return this.email.body.slice(0, 90) ;
+
+    },
+  },
 }

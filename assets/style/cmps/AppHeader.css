@@ -1,17 +1,25 @@
 .app-header {
-  background-color: rgb(240, 214, 214);
+  background-color: rgb(245, 227, 227);
   color: rgb(99, 99, 100);
   padding: 1em;
   display: flex;
-  gap: 100px;
   align-items: center;
-  font-family: roboto-bold;
   font-size: 20px;
   box-shadow: inset;
   margin-top: -10px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-
+  box-shadow: rgba(100, 98, 98, 0.25) 0px 14px 28px, rgba(71, 71, 71, 0.22) 0px 10px 10px;
+  font-family: 'Edu VIC WA NT Beginner', cursive;
 }
+
+
+.app-header .logo{
+  margin-top: 20px;
+  font-family: 'Edu VIC WA NT Beginner', cursive;
+  margin-inline-end: auto;
+  /* margin-inline-start: 30px; */
+}
+
+
 
 /* @media(max-width: 720px) {
   .app-header {

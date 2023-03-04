@@ -2,18 +2,24 @@ export default {
 	template: `
         <section>
             <div class="search-section">
+                <h1 class="keep">
+                    <i :style="{color: '#fbbc04'}" class="fa-solid fa-file"></i> KEEP
+                </h1>
+                <div></div>
                 <input 
                 class="search-input"
                 v-model="filterBy.txt"
                 @input="filter" 
-                placeholder="Search"
+                placeholder=" Search"
                 type="text" />
                 <button @click="clearSearch" title="Clear Search">X</button>
             </div>
 
             <div class="btns-filter" v-if="showAllFilter">
-                    <button @click="filterByLists">Lists</button>
-                    <button @click="filterByImages">Images</button>
+                    <button @click="filterByLists" title="search by lists">
+                        <i class="fa-solid fa-list"></i></button>
+                    <button @click="filterByImages" title="search by images">
+                        <i class="fa-regular fa-image" ></i></button>
                 </div>
         </section>
     `,

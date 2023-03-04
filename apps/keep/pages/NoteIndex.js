@@ -1,4 +1,5 @@
 import { notesService } from "../services/note.service.js"
+import { utilService } from "../../../services/util.service.js"
 
 import NoteFilter from "../cmps/NoteFilter.js"
 import NoteList from '../cmps/NoteList.js'
@@ -10,18 +11,25 @@ export default {
     template: `
         <section>
             <NoteFilter @filter="setFilterBy"/>
-            <NoteAdd @onAddNote="onAddNote" />
-            <section v-if="isPin">
-                <!-- <h3>PINNED</h3> -->
-                
+            <hr />
+             <section class="nav-keep">
+                   <article class="side-nav-bar">
+                     <button @click="getAllNotes" title="Notes"
+                             class="light-icon"><i class="fa-regular fa-lightbulb"></i></button> 
+                     <button title="Bin" class="trash-icon"><i class="fa-regular fa-trash-can"></i></button> 
+                  </article>
             </section>
+
+             <NoteAdd @onAddNote="onAddNote" />
+
             <section>
-                <!-- <h3>OTHERS</h3> -->
                 <NoteList 
                 :notes="filteredNotes"
-                @pinNote="pinNote"
+                @pinNote="onPinNote"
+                @copyNote="onCopyNote"
                 @updateColor="onChangeColor"
-                @remove="removeNote"/>
+                @updateText="onUpdateText"
+                @remove="onRemoveNote"/>
             </section>
         </section>
     `,
@@ -33,6 +41,38 @@ export default {
         }
     },
     methods: {
+       
+        onCopyNote(noteId) {
+            console.log('copy note', noteId)
+            const idx = this.notes.findIndex(note => note.id === noteId)
+            let currNote = this.notes[idx]
+            let newNote = JSON.stringify(currNote)
+            console.log(newNote) 
+            
+            // this.items.push({...this.newItem})
+            newNote = JSON.parse(newNote)
+            console.log('id new note', newNote) 
+            newNote.id = utilService.makeId()
+            console.log('id new note changed', newNote) 
+            notesService.save(newNote)
+            .then((savedNote) => {
+
+
+                this.notes.unshift(newNote)
+                   console.log(savedNote) 
+                })
+        },
+        onUpdateText({ noteId, updateNoteText }) {
+            const idx = this.notes.findIndex(note => note.id === noteId)
+            let prevNote = this.notes[idx]
+            prevNote = JSON.parse(JSON.stringify(prevNote))
+            prevNote.info.txt = updateNoteText
+            notesService.save(prevNote)
+                .then((savedNote) => {
+                    this.notes[idx] = savedNote
+                    eventBus.emit('show-msg', { txt: 'Text changed', type: 'success' })
+                })
+        },
         onChangeColor({ color, noteId }) {
             const idx = this.notes.findIndex(note => note.id === noteId)
             let prevNote = this.notes[idx]
@@ -41,9 +81,10 @@ export default {
             notesService.save(prevNote)
                 .then((savedNote) => {
                     this.notes[idx] = savedNote
+                    eventBus.emit('show-msg', { txt: 'Color changed', type: 'success' })
                 })
         },
-        removeNote(noteId) {
+        onRemoveNote(noteId) {
             notesService.remove(noteId)
                 .then(() => {
                     const idx = this.notes.findIndex(note => note.id === noteId)
@@ -52,7 +93,6 @@ export default {
                 })
         },
         setFilterBy(filterBy) {
-            console.log(filterBy)
             this.filterBy = filterBy
         },
         onAddNote(newNote) {
@@ -61,12 +101,19 @@ export default {
                     this.notes.unshift(savedNote)
                 })
         },
-        pinNote(noteId) {
-            this.isPin = true
-            console.log('pin noteid', noteId)
+        onPinNote(noteId) {
             const idx = this.notes.findIndex(note => note.id === noteId)
-            console.log('note idx', idx)
-            this.notes[idx].isPinned = true
+            
+            const noteToPinned = JSON.parse(JSON.stringify(this.notes[idx]))
+            this.notes.splice(idx, 1)
+
+            notesService.save(noteToPinned)
+            .then((savedNote) => {
+                this.notes.unshift(savedNote)
+            })
+        },
+        getAllNotes() {
+            this.filterBy = {}
         },
     },
     computed: {
@@ -77,16 +124,14 @@ export default {
             if (this.filterBy.type === 'NoteImg') {
                 return this.notes.filter(note => note.type === 'NoteImg')
             }
-            if(this.filterBy === {})  {
+            if (this.filterBy === {}) {
                 notesService.query()
-                .then(notes => {
-                    console.log(notes)
-                    this.notes = notes
-                })
+                    .then(notes => this.notes = notes)
             }
             const regex = new RegExp(this.filterBy.txt, 'i')
             return this.notes.filter(note => regex.test(note.info.txt))
         },
+       
     },
     created() {
         notesService.query()

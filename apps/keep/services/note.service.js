@@ -3,17 +3,17 @@ import { storageService } from './../../../services/async-storage.service.js'
 
 const NOTE_KEY = 'noteDB'
 
-// demo data
 const notesDB = [
     {
         id: 'n101',
         createdAt: 1112222,
         type: 'NoteTxt',
-        isPinned: true,
+        isPinned: false,
         style: {
             backgroundColor: '#ffd6a5'
         },
         info: {
+            title: 'Bobi and Me',
             txt: utilService.makeLorem(20)
         }
     },
@@ -21,11 +21,12 @@ const notesDB = [
         id: 'n102',
         createdAt: 1112222,
         type: 'NoteTxt',
-        isPinned: true,
+        isPinned: false,
         style: {
             backgroundColor: '#ffadad'
         },
         info: {
+            title: 'Bobi and Me',
             txt: utilService.makeLorem(20)
         }
     },
@@ -33,11 +34,12 @@ const notesDB = [
         id: 'n103',
         createdAt: 1112222,
         type: 'NoteTxt',
-        isPinned: true,
+        isPinned: false,
         style: {
             backgroundColor: '#ffadad'
         },
         info: {
+            title: 'Bobi and Me',
             txt: utilService.makeLorem(20)
         }
     },
@@ -45,8 +47,9 @@ const notesDB = [
         id: 'n104', type: 'NoteImg',
         isPinned: false,
         info: {
+            title: 'Bobi and Me',
             url: 'http://unsplash.it/462/340',
-            title: 'Bobi and Me'
+            txt: utilService.makeLorem(20)
         },
         style: {
             backgroundColor: '#ffadad'
@@ -114,11 +117,12 @@ function getEmptyNote() {
         id: '',
         createdAt: 1112222,
         type: 'NoteTxt',
-        isPinned: true,
+        isPinned: false,
         style: {
             backgroundColor: '#ffc6ff'
         },
         info: {
+            title: '',
             txt: '',
         }
     }

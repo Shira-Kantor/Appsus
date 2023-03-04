@@ -6,11 +6,12 @@ export default {
                   :style="{'background-color': note.style?.backgroundColor || 'white'}">
 
              <button class="btn-pin-note" @click="onPinNote(note.id)">
-                        <i class="fa-solid fa-thumbtack"></i>
+                        <i v-if="!note.isPinned" class="fa-solid fa-thumbtack"></i>
+                        <i v-if="note.isPinned" :style="{color: 'red'}" class="fa-solid fa-thumbtack"></i>
              </button>
         
-            <h2  @click="update(note.id)" >{{ note.info.txt }}</h2>
-            <!-- <h1>{{note.type}}</h1> -->
+            <!-- <h2  @click="update(note.id)" >{{ note.info.title }}</h2> -->
+            <h3  @click="update(note.id)" >{{ note.info.txt }}</h3>
             <img :src="note.info.url"/>
 
             <div class="btns-section">
@@ -18,9 +19,14 @@ export default {
                     <i class="fa-solid fa-trash"></i>
                 </button>
                     
-                <button class="btn-color" :class="openPallete"
+                <button class="btn-color"
                         @click="isOpenPalette = !isOpenPalette">
-                    <i class="fa-solid fa-palette"></i>
+                     <i class="fa-solid fa-palette"></i>
+                 </button>
+
+                <button class="btn-copy"
+                        @click="copyNote(note.id)">
+                    <i class="fa-solid fa-copy"></i>
                  </button>
             </div>
             
@@ -31,8 +37,11 @@ export default {
                         @click="showModal = false"
                         title="Close">close</button>
 
+                   <img :src="note.info.url"/>
                <!-- <div>  -->
-                 <textarea class="" v-model="updateNote">
+                 <textarea  class="modal-txt" v-model="updateNote"
+                   :style="{'background-color': note.style?.backgroundColor || 'white'}">
+                  
                  </textarea>
                <!-- </div> -->
 
@@ -63,21 +72,24 @@ export default {
                 '#ffd6a5',
                 '#fdffb6',
                 '#caffbf',
-                '#9bf6ff',
-                '#ffc6ff',
-                '#fffffc',
+                '#cbf0f8',
+                '#fdcfe8',
+                '#f3f3ec',
                 '#d8e2dc'
             ],
         }
     },
     methods: {
+        copyNote(noteId) {
+            this.$emit('copyNote', noteId)
+        },
         saveColor() {
-            console.log('save color') 
+            console.log('save color')
         },
         selectNoteColor(color) {
-            console.log('select color',this.note.id)
+            console.log('select color', this.note.id)
             const noteId = this.note.id
-            this.$emit('updateColor',{color, noteId})
+            this.$emit('updateColor', { color, noteId })
             this.isOpenPalette = false
         },
         toggleModal() {
@@ -95,25 +107,23 @@ export default {
             console.log(this.notes[idx].style.backgroundColor)
         },
         update() {
-            console.log('update', this.note.style.backgroundColor)
+            console.log('update', this.note.type)
             this.showModal = !this.showModal
             this.updateNote = this.note.info.txt
         },
         onPinNote(noteId) {
-            console.log(noteId)
             this.$emit('pinNote', noteId)
         },
         saveUpdate() {
-            console.log('save changes', this.updateNote)
+            const noteId = this.note.id
+            const updateNoteText = this.updateNote
+            this.$emit('updateText', { noteId, updateNoteText })
             this.showModal = !this.showModal
         },
     },
     computed: {
         printUpdateNote() {
             return this.updateNote
-        },
-        openPallete() {
-            return 'open-pallete'
         },
     },
     created() {

@@ -13,12 +13,12 @@
     /* border: 1px solid rgb(130, 122, 122); */
     border-radius: 10px;
 }
-.note-preview h2 {
+.note-preview h3 ,
+.note-preview h2{
     padding: 15px;
 }
 .note {
-    /* color: red;
-    background-color: aqua; */
+   
     border-radius: 5%;
     padding: 10px;
     width: 280px;
@@ -31,8 +31,11 @@
     border-radius: 50%;
 }
 textarea {
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    font-size: 1rem;
     height: 500px;
     resize: none;
     border: none;
-    padding: 10px;
+    padding: 50px;
 }

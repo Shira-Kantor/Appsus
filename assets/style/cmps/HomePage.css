@@ -1,5 +1,43 @@
-body {
-/* background-image: url('../../img/8328136.jpg'); */
-background-repeat: no-repeat;
-background-size: cover;
+.home-page {
+    /* background-image: url('../../img/8328136.jpg'); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* min-height: calc(90vh - 3rem); */
+}
+.home-links {
+    margin-top: 6rem;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.home-title {
+    margin-top: 40px;
+    font-family: 'Edu VIC WA NT Beginner', cursive;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.home-gmail {
+    background-image: url('../../img/gmail.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 250px;
+    height: 250px;
+}
+
+.home-books {
+    /* background-image: url('../../img/.png'); */
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 250px;
+    height: 250px;
+}
+
+.home-keep {
+    background-image: url('../../img/keep.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 250px;
+    height: 200px;
 }

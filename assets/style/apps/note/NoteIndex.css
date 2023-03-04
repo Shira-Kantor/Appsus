@@ -1,0 +1,25 @@
+.nav-keep >* {
+    display: flex;
+}
+
+.side-nav-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.light-icon:hover,
+.trash-icon:hover {
+    background-color: rgb(222, 222, 219);
+    width: 190px;
+    border-radius: 26px;
+}
+
+.light-icon,
+.trash-icon {
+    border: none;
+    background-color: rgba(240, 248, 255, 0);
+    font-size: 25px;
+    transition: background-color 0.5s;
+}

@@ -3,8 +3,9 @@
     display: block;
 
     /* margin: auto; */
-    /* margin-top: 20px; */
+    margin-top: 15px;
     width: 40vw;
+    height:50px;
     border-radius: 5px;
     border: none;
     background-color: #f0eeee;
@@ -25,10 +26,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+    justify-content: space-between;
 }
+
+.keep {
+    color: rgb(101, 100, 100);
+    font-size: 2rem;
+    margin-top: 40px;
+}
+
 .search-section button{
-   
+    margin-top: 35px;
     border: none;
     background-color: #f0eeee00;
 }

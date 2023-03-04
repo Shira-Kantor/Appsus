@@ -1,0 +1,9 @@
+.about-page {
+    padding-left: 2.6rem;
+    padding-right: 2.6rem;
+}
+.about-page h1 {
+    margin-top: 40px;
+    font-family:  Georgia, Times, 'Times New Roman', serif;
+    font-size: 2rem;
+}

@@ -10,6 +10,9 @@ export default {
 
              <NotePreview :note="note"
                           @updateColor="$emit('updateColor', $event)"
+                          @updateText="$emit('updateText', $event)"
+                          @copyNote="$emit('copyNote', $event)"
+                          @pinNote="$emit('pinNote', $event)"
                           @remove="$emit('remove', $event)"/>
             </article>
         </section>

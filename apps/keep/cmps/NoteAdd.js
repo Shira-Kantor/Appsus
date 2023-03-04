@@ -8,12 +8,13 @@ export default {
     template: `
         <section v-if="survey">
         <h2 :style="{color: survey.color}">{{survey.title}}</h2>
+
             <form @submit.prevent="save" class="form-add-note">
                 <div v-for="(cmp, idx) in survey.cmps">
                     <Component 
-                        :is="cmp.type"  
-                        :info="cmp.info" 
-                        @setVal="setAns($event, idx)" />
+                    :is="cmp.type"  
+                    :info="cmp.info" 
+                    @setVal="setAns($event, idx)" />
                 </div>
                 <button class="btn-save-new-update">Save</button>
             </form>
@@ -33,6 +34,7 @@ export default {
         },
         setAns(ans, idx) {
             // console.log('Setting the answer: ', ans, 'idx:', idx)
+            if(!ans)return
             this.newNote.info.txt = ans
             this.$emit('onAddNote', JSON.parse(JSON.stringify(this.newNote)))
         },

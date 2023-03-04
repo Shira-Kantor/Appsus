@@ -3,10 +3,11 @@
     align-items: center;
     
     height: 5vh;
-    
+    font-family: 'Edu VIC WA NT Beginner', cursive;
     padding: 10px;
-    background-color: lightcoral;
-    color: rgb(64, 134, 175);
+    background-color: rgb(245, 227, 227);
+    color: rgb(159, 157, 158);
+    font-weight: bold;
     box-shadow: rgba(0, 0, 0, 0.25) 0px -8px 10px 0px;
 }
 .app-footer p {

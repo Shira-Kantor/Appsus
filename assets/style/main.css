@@ -24,12 +24,3 @@
 @import 'apps/mail/EmailPre.css';
 @import 'apps/mail/MailEdit.css';
 
-/* Notes */
-@import 'apps/note/NoteIndex.css';
-
-/* Note Components */
-@import 'cmps/NotePreview.css';
-@import 'cmps/NoteFilter.css';
-@import 'cmps/NoteList.css';
-@import 'cmps/NoteEdit.css';
-

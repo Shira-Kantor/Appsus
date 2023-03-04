@@ -38,6 +38,8 @@ function put(entityType, updatedEntity) {
 }
 
 function remove(entityType, entityId) {
+    console.log('example1',entityType)
+    console.log('example2',entityId)
     return query(entityType).then(entities => {
         const idx = entities.findIndex(entity => entity.id === entityId)
         if (idx < 0) throw new Error(`Unknown Entity ${entityId}`)

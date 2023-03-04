@@ -9,13 +9,6 @@ export default {
                 <article class="home-gmail"></article>
             </router-link> 
             
-            <!-- <router-link to="/book">
-                <article class="home-books"></article>
-            </router-link>  -->
-            
-            <router-link to="/note">
-                <article class="home-keep"></article>
-            </router-link>
         </div>
 
         </section>

@@ -27,7 +27,7 @@
 }
 
 .home-books {
-    /* background-image: url('../../img/.png'); */
+    background-image: url('../../img/books.png');
     background-repeat: no-repeat;
     background-size: contain;
     width: 250px;

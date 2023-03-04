@@ -36,10 +36,15 @@
     height: 10px;
     border: none;
     border-radius: 50px;
-
-    color: rgb(83, 72, 72);
+    /* color: rgb(83, 72, 72); */
     background-color: rgba(255, 253, 253, 0);
  }
+ .btn-star.isStared  {
+    color: yellow;
+    background-color: rgb(157, 157, 159);
+    opacity: 1;
+ }
+
 .btn-star:hover {
     background-color: rgb(168, 162, 162);
     /* color: yellow; */

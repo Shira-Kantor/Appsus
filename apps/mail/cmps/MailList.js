@@ -12,7 +12,7 @@ export default {
            
             <tr v-for="email in emails" :key="email.id" class="email-line">
                     <!-- <pre>{{email}}</pre> -->
-                    <td>   <button class="btn-star" @click="isStared(email)"><i class="fa-regular fa-star"></i></button></td>
+                    <td>   <button class="btn-star" @click="isStared(email)" :class="{isStared: email.isStared}"><i class="fa-solid fa-star" ></i></button></td>
                    <td   @click="markEmailRead(email)" class="email-txt"> <RouterLink :to="'/email/' + email.id"> <MailPreview :email="email"/></RouterLink> </td>
 
                     <!-- <RouterLink :to="'/email/edit/'+email.id">Edit</RouterLink> | -->
@@ -29,9 +29,12 @@ export default {
         },
         onRead(email) {
             email.isRead = !email.isRead
+            emailService.save(email)
         },
         isStared(email) {
             email.isStared = !email.isStared
+            emailService.save(email)
+            console.log('email.isStared',email.isStared)
         },
         markEmailRead(email) {
             email.isRead = true

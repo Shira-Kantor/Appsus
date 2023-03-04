@@ -1,4 +1,5 @@
 import { emailService } from '../services/mail.service.js'
+import { eventBus } from '../../../services/event-bus.service.js'
 
 export default {
     props: ['email.id'],
@@ -25,9 +26,15 @@ export default {
     methods: {
         remove(emailId) {
             console.log('remove');
-            const mail = emailService.get(emailId).then((email) => emailService.remove(mail))
-
-            this.$emit('remove', emailId)///how is the father???
+           emailService.get(emailId).then((email) => emailService.remove(emailId))
+            .then(() => {
+                const idx = this.emails.findIndex(email => email.id === emailId)
+                this.emails.splice(idx, 1)
+                eventBus.emit('show-msg', { txt: 'Email removed', type: 'success' })
+            })
+            .catch(err => {
+                eventBus.emit('show-msg', { txt: 'Email remove failed', type: 'error' })
+            })
         },
         onStared(email) {
             email.isStared = true

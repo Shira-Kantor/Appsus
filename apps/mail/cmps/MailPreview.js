@@ -2,7 +2,7 @@ export default {
   // name: 'pre',
   props: ['email'],
   template: `
-  <table class="email-view preview" :class="{isRead: email.isRead, isStared: email.isStared}">
+  <table class="email-view preview" :class="{isRead: email.isRead}">
    <tr> <td class="from" > {{email.from}} </td>
     <td class="subject"> {{email.subject}}</td>
     <td class="email-body"> {{showBody}}</td>
